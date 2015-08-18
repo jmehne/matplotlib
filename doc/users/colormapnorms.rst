@@ -20,7 +20,7 @@ colormap. Normalizations are defined as part of
 
 The artists that map data to
 color pass the arguments *vmin* and *vmax* to
-:func:`matplotlib.colors.Normalize`. We can substnatiate the
+:func:`matplotlib.colors.Normalize`. We can substantiate the
 normalization and see what it returns.  In this case it returns 0.5:
 
 .. ipython::
@@ -49,15 +49,15 @@ location of each bump can clearly be seen:
 .. plot:: users/plotting/examples/colormap_normalizations_lognorm.py
    :include-source:
 
-Symetric logarithmic
+Symmetric logarithmic
 ---------------------------------
 
 Similarly, it sometimes happens that there is data that is positive
 and negative, but we would still like a logarithmic scaling applied to
 both.  In this case, the negative numbers are also scaled
 logarithmically, and mapped to small numbers.  i.e. If `vmin=-vmax`,
-then they the negative numbers are mapped from 0 to 0.5 and the
-positive from 0.5 to 1.
+then the negative numbers are mapped from 0 to 0.5 and the
+positive ones from 0.5 to 1.
 
 Since the values close to zero tend toward infinity, there is a need
 to have a range around zero that is linear.  The parameter *linthresh*
@@ -76,7 +76,7 @@ Power-law
 Sometimes it is useful to remap the colors onto a power-law
 relationship (i.e. :math:`y=x^{\gamma}`, where :math:`\gamma` is the
 power).  For this we use the :func:`colors.PowerNorm`.  It takes as an
-argument *gamma* ( *gamma* == 1.0 will just yield the defalut linear
+argument *gamma* ( *gamma* == 1.0 will just yield the default linear
 normalization):
 
 .. note::
@@ -94,7 +94,7 @@ normalization):
 Discrete bounds
 ---------------------------------
 
-Another normaization that comes with matplolib is
+Another normalization that comes with matplolib is
 :func:`colors.BoundaryNorm`.  In addition to *vmin* and *vmax*, this
 takes as arguments boundaries between which data is to be mapped.  The
 colors are then linearly distributed between these "bounds".  For
@@ -130,7 +130,7 @@ for the edge cases like masked data or invalid values of *vmin* and
 .. note::
    This may appear soon as :func:`colors.OffsetNorm`
 
-   As above, non-symetric mapping of data to color is non-standard
+   As above, non-symmetric mapping of data to color is non-standard
    practice for quantitative data, and should only be used advisedly. A
    practical example is having an ocean/land colormap where the land and
    ocean data span different ranges.
