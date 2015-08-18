@@ -94,11 +94,15 @@ normalization):
 Discrete bounds
 ---------------------------------
 
-Another normalization that comes with matplolib is
-:func:`colors.BoundaryNorm`.  In addition to *vmin* and *vmax*, this
-takes as arguments boundaries between which data is to be mapped.  The
-colors are then linearly distributed between these "bounds".  For
-instance, if:
+It is also possible to divide the data range into several intervals and
+map a single color to each interval.  This can be done with
+:func:`colors.BoundaryNorm`.  The first argument *boundaries* is used to
+define the interval boundaries.  The minimal and maximal boundary values
+implicitly set *vmin* and *vmax*.  The second argument *ncolors* define
+the number of colors that are used for the mapping.  If *ncolors* equals
+the number of intervals (i.e., ``len(boundaries) - 1``), the first
+color is distributed to the first interval, and so on.  Otherwise,
+linear interpolation is used to distribute the colors.
 
 .. ipython::
 
