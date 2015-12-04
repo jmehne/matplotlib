@@ -2344,38 +2344,61 @@ class Axes3D(Axes):
 
     def bar3d(self, x, y, z, dx, dy, dz, color='b',
               zsort='average', *args, **kwargs):
-        '''
-        Generate a 3D bar, or multiple bars.
+        """
+        Generate one or several 3D bars.
 
-        When generating multiple bars, x, y, z have to be arrays.
-        dx, dy, dz can be arrays or scalars.
+        Parameters
+        ----------
 
-        *color* can be:
+        x : array_like, vector
+            The coordinates of the left edge of each bar in x-direction.
 
-         - A single color value, to color all bars the same color.
+        y : array_like, vector
+            As `x`, just in y-direction. Must have the same length as `x`.
 
-         - An array of colors of length N bars, to color each bar
-           independently.
+        z : array_like, vector
+            As `x`, just in z-direction. Must have the same length as `x`.
 
-         - An array of colors of length 6, to color the faces of the
-           bars similarly.
+        dx : array_like, vector
+            The width of the bar(s) in x-direction.
+            If `dx` is a scalar, all bars have the same width.
+            If `dx` is not a scalar, it must have the same length as `x`.
 
-         - An array of colors of length 6 * N bars, to color each face
-           independently.
+        dy : array_like, vector
+            As `dx`, just in y-direction.
 
-         When coloring the faces of the boxes specifically, this is
-         the order of the coloring:
+        dz : array_like, vector
+            As `dx`, just in z-direction (i.e., the height of the bar).
 
-          1. -Z (bottom of box)
-          2. +Z (top of box)
-          3. -Y
-          4. +Y
-          5. -X
-          6. +X
+        color : str or array_like of str, optional
+            Sets the color of the bar(s). See :func:`~matplotlib.colors` for
+            valid color strings. Default is 'b'.
+            If `color` is
+            - a single color value: all the bars are the same color
+            - a list of colors of length `N = len(x)` bars: each bar is colored
+              independently.
+            - a list of colors of length 6: changes the face color of each
+              bar, but all bars are colored the same.
+            - a nested list of colors of length 6 * N: changes the face color
+              of each bar independently.
 
-        Keyword arguments are passed onto
+            For coloring the faces of the bars, the six color values change:
+
+                1. -Z (bottom of bar)
+                2. +Z (top of bar)
+                3. -Y
+                4. +Y
+                5. -X
+                6. +X
+
+        zsort : str or bool, optional
+            Sets the z-sorting behaviour.
+            See :func:`~mpl_toolkits.mplot3d.art3d.Poly3DCollection.set_zsort`
+            Default is 'average'.
+
+        Any additional keyword arguments are passed onto
         :func:`~mpl_toolkits.mplot3d.art3d.Poly3DCollection`
-        '''
+        """
         had_data = self.has_data()
 
         if not cbook.iterable(x):
