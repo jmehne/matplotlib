@@ -167,13 +167,10 @@ trivial: for example both the parent branch and your branch add an entry to
 the top of `CHANGELOG`.  Git can not unambiguously tell what to with both
 changes (should one go above the other? if so, which order? should it try to
 merge them?) so it declares the branches can not be merged
-cleanly. Github can only automatically merge PR without conflicts, so you will
-need to manually 'rebase'. This is the process of updating your branch with
-upstream changes, and resolving conflicts.
-
-In git, rebasing is a mild form of re-writing history: it effectively forwards
-all your commits to the updated upstream commit. For a much more detailed
-explanation (with pictures!) see `this nice write up
+cleanly. Github can only automatically merge PRs without conflicts. To resolve
+the conflict, git can try to replay the history of your branch on top of the
+upstream master branch. In git, this is called a 'rebase'.  For a much more
+detailed explanation (with pictures!) see `this nice write up
 <http://git-scm.com/book/en/Git-Branching-Rebasing>`.  The numpy team has also
 `documented how to do this
 <http://docs.scipy.org/doc/numpy/dev/gitwash/development_workflow.html#rebasing-on-master>`
