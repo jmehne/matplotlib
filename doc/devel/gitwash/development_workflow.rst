@@ -249,8 +249,9 @@ blocks that look something like this::
 The block of code between `<<<<<<<` and `=======` is the code on the
 target branch (in this case nothing) and the code between `=======`
 and `>>>>>>>` is the code on your branch.  The rest of the code is the
-same between the two branches.  You need to determine how to resolve the
-conflict (in this case, the code on HEAD is correct).  Once you have
+same between the two branches. You resolve the conflict by replacing everything
+between (including) `<<<<<<<` and `>>>>>>>` with the whatever code
+should be used (in this case, the code on HEAD is correct).  Once you have
 resolved all the conflicts, `add` the file to the index::
 
      $ git add lib/matplotlib/backends/backend_gtk3.py
